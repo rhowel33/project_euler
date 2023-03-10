@@ -10,3 +10,23 @@ So, COLIN would obtain a score of 938 × 53 = 49714.
 
 What is the total of all the name scores in the file?
 """
+import numpy as np
+# read in the names in the file, remove the quotes and commas, and separate into items in a list
+with open("names.txt") as fin:
+    data = fin.read()[1:-1].split('","')
+
+data.sort()
+
+# create a mapping
+abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+mapping = {letter: i + 1 for i, letter in enumerate(abc)}
+
+# loop through the names and get their scores
+total = 0
+for i, name in enumerate(data):
+    subtotal = 0
+    for let in name:
+        subtotal += mapping[let]
+    total += subtotal * (i + 1)
+
+print(total)
