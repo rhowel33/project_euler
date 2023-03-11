@@ -28,7 +28,8 @@ count += len('eight') * (90 + 100)
 count += len('nine') * (90 + 100)
 
 
-count += len('hundredand') * 900
+count += len('hundredand') * (99 * 9)
+count += len("hundred") * (9)
 
 count += len('ten') * (10)
 count += len("eleven") * 10
