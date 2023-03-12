@@ -72,9 +72,7 @@ row_count = len(pyramid)
 max_row = []
 past_row = pyramid[-1]
 for i in range(row_count - 2, 0, -1):
-    print(past_row)
-    print(pyramid[i])
     past_row = np.maximum(pyramid[i] + past_row[:-1],pyramid[i] + past_row[1:])
-    print(past_row)
+
 print(np.max(past_row) + pyramid[0][0])
 
