@@ -10,6 +10,8 @@ Evaluate the sum of all the amicable numbers under 10000.
 """
 import numpy as np
 
+ranges = (2, 10001)
+
 
 def d(n):
     divisors = set()
@@ -17,16 +19,38 @@ def d(n):
         if n % i == 0:
             divisors.add(i)
             divisors.add(n / i)
-    return int(sum(list(divisors.remove(n))))
+    divisors.remove(n)
+    return int(sum(list(divisors)))
 
-sums = np.array([1]+[d(i) for i in range(2, 10001)])
-# print(sums)
-total_sum = 0
 
-for i, sum1 in enumerate(sums):
-    print(i,sum1)
-    if sums[sum1] == i and i != sum1:
-        total_sum += i
-        print(i)
+div_sums = {i:d(i) for i in range(*ranges)}
+ami_nums = []
+for a in range(*ranges):
+    try:
+        b = div_sums[a]
+        if div_sums[b] == a and a != b:
 
-print(f'final sum is {total_sum}')
+            ami_nums.append(a)
+    except KeyError:
+        pass
+
+print(np.sum(ami_nums))
+
+
+
+
+
+
+
+#
+# sums = np.array([1]+[d(i) for i in range(2, 10001)])
+# # print(sums)
+# total_sum = 0
+#
+# for i, sum1 in enumerate(sums):
+#     print(i,sum1)
+#     if sums[sum1] == i and i != sum1:
+#         total_sum += i
+#         print(i)
+#
+# print(f'final sum is {total_sum}')
