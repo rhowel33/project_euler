@@ -9,7 +9,9 @@ How many such routes are there through a 20×20 grid?
 """
 
 import numpy as np
-x = 4
-# create the grid
-grid = np.array([[2 if i < x-1 and j < x-1 else 1 for i in range(x)] for j in range(x)])
-print(grid)
+from math import comb
+# we need a path length of 40
+# and we now it has to come from a combination of 20
+
+
+print(comb(40, 20))
