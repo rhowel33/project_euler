@@ -35,22 +35,3 @@ for a in range(*ranges):
         pass
 
 print(np.sum(ami_nums))
-
-
-
-
-
-
-
-#
-# sums = np.array([1]+[d(i) for i in range(2, 10001)])
-# # print(sums)
-# total_sum = 0
-#
-# for i, sum1 in enumerate(sums):
-#     print(i,sum1)
-#     if sums[sum1] == i and i != sum1:
-#         total_sum += i
-#         print(i)
-#
-# print(f'final sum is {total_sum}')
